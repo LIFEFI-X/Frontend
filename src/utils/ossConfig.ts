@@ -20,10 +20,10 @@ export const defaultOSSConfig: OSSConfig = {
   region: 'oss-ap-southeast-1',
   
   // Access key ID (environment variables recommended)
-  accessKeyId: 'LTAI5tLiuonwebjVXJjJGY3n',
+  accessKeyId:import.meta.env.VITE_AccessKeyId
   
   // Access key Secret (environment variables are recommended)
-  accessKeySecret: 'NAJ6LSi6Ih9JI7Zt8UFwCDmRVfOexf',
+  accessKeySecret: import.meta.env.VITE_AccessKeySecret
   
   // OSS bucket name
   bucket: 'lifeif',
