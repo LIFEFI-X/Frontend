@@ -1,0 +1,261 @@
+// Shepherd.js custom styles - using a dark theme to contrast with the light theme of the project
+
+// Override the default Shepherd style
+.shepherd-element {
+  // Bootstrap Container
+  &.gallery-guide-step {
+    .shepherd-content {
+      background: var(--theme-card-background) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 20px 40px var(--theme-shadow) !important;
+      border: 2px solid var(--theme-primary) !important;
+      overflow: hidden;
+      max-width: 380px;
+      min-width: 320px;
+      
+      // Boot title
+      .shepherd-title {
+        color: var(--theme-text-primary) !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        margin: 0 0 12px 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        border: none !important;
+        text-shadow: 0 1px 2px var(--theme-shadow);
+      }
+      
+      // Boot content
+      .shepherd-text {
+        color: var(--theme-text-secondary) !important;
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+        
+        p {
+          margin: 0 0 12px 0 !important;
+          color: var(--theme-text-secondary) !important;
+        }
+        
+        ul {
+          margin: 8px 0 0 0 !important;
+          padding-left: 0 !important;
+          list-style: none !important;
+          
+          li {
+            margin: 6px 0 !important;
+            padding-left: 0 !important;
+            color: var(--theme-text-secondary) !important;
+            position: relative;
+            
+            strong {
+              color: var(--theme-primary) !important;
+              font-weight: 600;
+            }
+          }
+        }
+        
+        .guide-content {
+          p {
+            color: var(--theme-text-primary) !important;
+            font-weight: 500;
+            margin-bottom: 16px !important;
+          }
+        }
+        
+        .guide-tip {
+          background: rgba(77, 171, 247, 0.1) !important;
+          border: 1px solid rgba(77, 171, 247, 0.3) !important;
+          border-radius: 8px !important;
+          padding: 12px 16px !important;
+          margin-top: 16px !important;
+          color: var(--theme-primary) !important;
+          font-size: 13px !important;
+          font-weight: 500 !important;
+        }
+      }
+      
+      // head area
+      .shepherd-header {
+        background: none !important;
+        border: none !important;
+        padding: 20px 24px 0 24px !important;
+      }
+      
+      // main area
+      .shepherd-body {
+        padding: 0 24px 20px 24px !important;
+      }
+      
+      // button area
+      .shepherd-footer {
+        background: none !important;
+        border: none !important;
+        padding: 0 24px 24px 24px !important;
+        
+        .shepherd-button {
+          border-radius: 8px !important;
+          font-weight: 600 !important;
+          font-size: 14px !important;
+          padding: 10px 20px !important;
+          border: none !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          margin-left: 8px !important;
+          
+          &:first-child {
+            margin-left: 0 !important;
+          }
+          
+          // main button
+          &.btn-primary {
+            background: var(--theme-primary) !important;
+            color: var(--theme-text-inverse) !important;
+            box-shadow: 0 4px 12px rgba(77, 171, 247, 0.3) !important;
+            
+            &:hover {
+              transform: translateY(-2px) !important;
+              box-shadow: 0 6px 16px rgba(77, 171, 247, 0.4) !important;
+            }
+          }
+          
+          // secondary button
+          &.btn-secondary {
+            background: var(--theme-hover) !important;
+            color: var(--theme-text-secondary) !important;
+            border: 1px solid var(--theme-border) !important;
+            
+            &:hover {
+              background: var(--theme-active) !important;
+              color: var(--theme-text-primary) !important;
+              border-color: var(--theme-primary) !important;
+            }
+          }
+          
+          // success button
+          &.btn-success {
+            background: var(--theme-success) !important;
+            color: var(--theme-text-inverse) !important;
+            box-shadow: 0 4px 12px rgba(105, 219, 124, 0.3) !important;
+            
+            &:hover {
+              transform: translateY(-2px) !important;
+              box-shadow: 0 6px 16px rgba(105, 219, 124, 0.4) !important;
+            }
+          }
+        }
+      }
+      
+      // close button
+      .shepherd-cancel-icon {
+        color: var(--theme-text-secondary) !important;
+        background: var(--theme-hover) !important;
+        border-radius: 50% !important;
+        padding: 8px !important;
+        right: 16px !important;
+        top: 16px !important;
+        width: 32px !important;
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        
+        &:hover {
+          color: var(--theme-text-primary) !important;
+          background: var(--theme-error) !important;
+        }
+      }
+    }
+    
+    // Arrow style
+    &[data-popper-placement^="top"] > .shepherd-arrow:before {
+      border-top-color: var(--theme-card-background) !important;
+    }
+    
+    &[data-popper-placement^="bottom"] > .shepherd-arrow:before {
+      border-bottom-color: var(--theme-card-background) !important;
+    }
+    
+    &[data-popper-placement^="left"] > .shepherd-arrow:before {
+      border-left-color: var(--theme-card-background) !important;
+    }
+    
+    &[data-popper-placement^="right"] > .shepherd-arrow:before {
+      border-right-color: var(--theme-card-background) !important;
+    }
+  }
+}
+
+// Modal mask style
+.shepherd-modal-overlay-container {
+  .shepherd-modal-overlay {
+    background: var(--theme-overlay) !important;
+    backdrop-filter: blur(4px) !important;
+  }
+  
+  // Highlighted area
+  .shepherd-modal-overlay-opening {
+    box-shadow: 0 0 0 4px rgba(77, 171, 247, 0.5) !important;
+    border-radius: 8px !important;
+  }
+}
+
+// Guide step entry animation
+.shepherd-element.gallery-guide-step {
+  animation: guideStepIn 0.4s ease-out forwards;
+}
+
+@keyframes guideStepIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Responsive adaptation
+@media (max-width: 768px) {
+  .shepherd-element.gallery-guide-step {
+    .shepherd-content {
+      max-width: 280px !important;
+      min-width: 260px !important;
+      
+      .shepherd-header {
+        padding: 16px 20px 0 20px !important;
+      }
+      
+      .shepherd-body {
+        padding: 0 20px 16px 20px !important;
+      }
+      
+      .shepherd-footer {
+        padding: 0 20px 20px 20px !important;
+        
+        .shepherd-button {
+          font-size: 13px !important;
+          padding: 8px 16px !important;
+        }
+      }
+      
+      .shepherd-title {
+        font-size: 16px !important;
+      }
+      
+      .shepherd-text {
+        font-size: 13px !important;
+      }
+    }
+  }
+}
+
+// Make sure the boot level is the highest
+.shepherd-element {
+  z-index: 9999 !important;
+}
+
+.shepherd-modal-overlay-container {
+  z-index: 9998 !important;
+} 

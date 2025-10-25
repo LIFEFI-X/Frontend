@@ -1,0 +1,211 @@
+// Import the Sass map module
+@use "sass:map";
+
+// Responsive design breakpoints
+$breakpoints: (
+  xs: 375px,   // Small phones
+  sm: 576px,   // Large phones
+  md: 768px,   // Tablets
+  lg: 1024px,  // Small desktops
+  xl: 1200px,  // Medium desktops
+  xxl: 1400px  // Large desktops
+);
+
+// Media query mixin
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}. Available breakpoints: #{map.keys($breakpoints)}";
+  }
+}
+
+// Max-width media query
+@mixin respond-below($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint) - 1px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}. Available breakpoints: #{map.keys($breakpoints)}";
+  }
+}
+
+// Mobile-first responsive mixin
+@mixin mobile-first {
+  // Mobile style (default)
+  @content;
+  
+  // Tablet and wider
+  @include respond-to(md) {
+    @content;
+  }
+  
+  // Desktop
+  @include respond-to(lg) {
+    @content;
+  }
+}
+
+// Desktop-first responsive mixin  
+@mixin desktop-first {
+  // Desktop styles (default)
+  @content;
+  
+  // Tablet and below
+  @include respond-below(lg) {
+    @content;
+  }
+  
+  // Mobile viewport
+  @include respond-below(md) {
+    @content;
+  }
+}
+
+// Common responsive font sizes
+@mixin responsive-font($mobile-size, $tablet-size: null, $desktop-size: null) {
+  font-size: $mobile-size;
+  
+  @if $tablet-size {
+    @include respond-to(md) {
+      font-size: $tablet-size;
+    }
+  }
+  
+  @if $desktop-size {
+    @include respond-to(lg) {
+      font-size: $desktop-size;
+    }
+  }
+}
+
+// Responsive spacing helper
+@mixin responsive-spacing($mobile-spacing, $tablet-spacing: null, $desktop-spacing: null) {
+  padding: $mobile-spacing;
+  
+  @if $tablet-spacing {
+    @include respond-to(md) {
+      padding: $tablet-spacing;
+    }
+  }
+  
+  @if $desktop-spacing {
+    @include respond-to(lg) {
+      padding: $desktop-spacing;
+    }
+  }
+}
+
+// Container width helper
+@mixin container($max-width: 1400px) {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  
+  @include respond-to(sm) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  @include respond-to(md) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  
+  @include respond-to(lg) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+// Safe-area padding helper
+@mixin safe-area-padding($position: 'all') {
+  @if $position == 'all' {
+    padding-top: max(20px, env(safe-area-inset-top));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    padding-left: max(16px, env(safe-area-inset-left));
+  } @else if $position == 'top' {
+    padding-top: max(20px, env(safe-area-inset-top));
+  } @else if $position == 'bottom' {
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+}
+
+// Responsive utilities to hide/show elements
+.mobile-only {
+  @include respond-to(md) {
+    display: none !important;
+  }
+}
+
+.tablet-up {
+  @include respond-below(md) {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  @include respond-below(lg) {
+    display: none !important;
+  }
+}
+
+// responsive grid
+@mixin grid-responsive($mobile-cols: 1, $tablet-cols: 2, $desktop-cols: 3) {
+  display: grid;
+  grid-template-columns: repeat($mobile-cols, 1fr);
+  gap: 16px;
+  
+  @include respond-to(md) {
+    grid-template-columns: repeat($tablet-cols, 1fr);
+    gap: 24px;
+  }
+  
+  @include respond-to(lg) {
+    grid-template-columns: repeat($desktop-cols, 1fr);
+    gap: 32px;
+  }
+}
+
+// Use example annotation
+/*Usage example:
+
+1. Basic breakpoint usage:
+.my-component {
+font-size: 14px;
+
+@include respond-to(md) {
+font-size: 16px;
+}
+
+@include respond-to(lg) {
+font-size: 18px;
+}
+}
+
+2. Responsive fonts:
+.title {
+@include responsive-font(24px, 32px, 40px);
+}
+
+3. Responsive containers:
+.container {
+@include container(1200px);
+}
+
+4. Responsive Grid:
+.grid {
+@include grid-responsive(1, 2, 3);
+}
+
+5. Mobile security area:
+.header {
+@include safe-area-padding('top');
+}*/ 

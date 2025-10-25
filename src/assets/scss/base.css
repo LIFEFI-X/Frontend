@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'Urbanist';
+  src: url('@/assets/font/Urbanist-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('@/assets/font/Urbanist-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('@/assets/font/Urbanist-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('@/assets/font/Urbanist-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: 500;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  font-family: Urbanist;
+  font-weight: 500;
+  font-size: 14px;
+  font-feature-settings:
+    'ss01' on,
+    'cv01' on,
+    'cv11' on;
+  color: #1d1d1f;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ant-modal-root .ant-modal-mask {
+  background: linear-gradient(180deg, rgba(7, 5, 19, 0.05) 1.54%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(25px);
+}
+
+.ant-modal-mask {
+  background: linear-gradient(180deg, rgba(7, 5, 19, 0.05) 1.54%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(25px);
+}

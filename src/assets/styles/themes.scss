@@ -1,0 +1,452 @@
+// Global theme style file
+
+// Basic CSS variables (will be dynamically set by JavaScript)
+:root {
+  // These variables will be dynamically set by the theme store
+  // This is just an alternative default value
+  --theme-primary: #4dabf7;
+  --theme-secondary: #9775fa;
+  --theme-accent: #69db7c;
+  
+  // black and white theme variable
+  --theme-black: #333333;
+  --theme-black-hover: #555555;
+  --theme-gray-light: #f5f5f5;
+  --theme-gray-medium: #d9d9d9;
+  --theme-gray-dark: #666666;
+  
+  // Default dark theme variables
+  --theme-background: #0a0a0a;
+  --theme-surface: #1a1a1a;
+  --theme-card-background: #2a2a2a;
+  --theme-header-background: #1f1f1f;
+  --theme-sidebar-background: #1a1a1a;
+  
+  --theme-text-primary: #e9ecef;
+  --theme-text-secondary: #ced4da;
+  --theme-text-muted: #adb5bd;
+  --theme-text-inverse: #212529;
+  
+  --theme-border: #343a40;
+  --theme-divider: #495057;
+  
+  --theme-success: #69db7c;
+  --theme-warning: #ffd43b;
+  --theme-error: #ff6b6b;
+  --theme-info: #4dabf7;
+  
+  --theme-overlay: rgba(0, 0, 0, 0.7);
+  --theme-shadow: rgba(0, 0, 0, 0.3);
+  --theme-hover: rgba(255, 255, 255, 0.08);
+  --theme-active: rgba(255, 255, 255, 0.12);
+  
+  // transition animation
+  --theme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --theme-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// light theme variables
+.theme-light {
+  --theme-background: #fafafa;
+  --theme-surface: #ffffff;
+  --theme-card-background: #ffffff;
+  --theme-header-background: #ffffff;
+  --theme-sidebar-background: #ffffff;
+  
+  --theme-text-primary: #333333;
+  --theme-text-secondary: #666666;
+  --theme-text-muted: #999999;
+  --theme-text-inverse: #ffffff;
+  
+  --theme-border: #e8e8e8;
+  --theme-divider: #d9d9d9;
+  
+  --theme-overlay: rgba(255, 255, 255, 0.9);
+  --theme-shadow: rgba(0, 0, 0, 0.1);
+  --theme-hover: rgba(0, 0, 0, 0.04);
+  --theme-active: rgba(0, 0, 0, 0.08);
+}
+
+// global base style
+body {
+  background-color: var(--theme-background);
+  color: var(--theme-text-primary);
+  transition: var(--theme-transition);
+  
+  &.theme-dark {
+    color-scheme: dark;
+  }
+  
+  &.theme-light {
+    color-scheme: light;
+  }
+}
+
+// Scroll bar style (dark theme adaptation)
+.theme-dark {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--theme-surface);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--theme-border);
+    border-radius: 4px;
+    
+    &:hover {
+      background: var(--theme-text-muted);
+    }
+  }
+}
+
+// Common component style overrides
+.theme-aware {
+  background-color: var(--theme-surface);
+  color: var(--theme-text-primary);
+  border-color: var(--theme-border);
+  
+  &.card {
+    background-color: var(--theme-card-background);
+    box-shadow: 0 4px 12px var(--theme-shadow);
+  }
+  
+  &.header {
+    background-color: var(--theme-header-background);
+    border-bottom: 1px solid var(--theme-divider);
+  }
+  
+  &.sidebar {
+    background-color: var(--theme-sidebar-background);
+  }
+}
+
+// Ant Design component dark theme adaptation
+.theme-dark {
+  // Input box
+  .ant-input-affix-wrapper {
+    background-color: var(--theme-surface) !important;
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text-primary) !important;
+    
+    &:hover {
+      border-color: var(--theme-primary) !important;
+    }
+    
+    &:focus, &.ant-input-affix-wrapper-focused {
+      border-color: var(--theme-primary) !important;
+      box-shadow: 0 0 0 2px rgba(77, 171, 247, 0.1) !important;
+    }
+    
+    .ant-input {
+      background: transparent !important;
+      color: var(--theme-text-primary) !important;
+      
+      &::placeholder {
+        color: var(--theme-text-muted) !important;
+      }
+    }
+  }
+  
+  // drop down menu
+  .ant-select-dropdown {
+    background-color: var(--theme-card-background) !important;
+    border: 1px solid var(--theme-border) !important;
+    
+    .ant-select-item {
+      color: var(--theme-text-primary) !important;
+      
+      &:hover {
+        background-color: var(--theme-hover) !important;
+      }
+      
+      &.ant-select-item-option-selected {
+        background-color: rgba(77, 171, 247, 0.1) !important;
+        color: var(--theme-primary) !important;
+      }
+    }
+  }
+  
+  // button
+  .ant-btn {
+    &:not(.ant-btn-primary):not(.ant-btn-danger) {
+      background-color: var(--theme-card-background) !important;
+      border-color: var(--theme-border) !important;
+      color: var(--theme-text-primary) !important;
+      
+      &:hover {
+        background-color: var(--theme-hover) !important;
+        border-color: var(--theme-primary) !important;
+      }
+    }
+    
+    &.ant-btn-primary {
+      background-color: var(--theme-primary) !important;
+      border-color: var(--theme-primary) !important;
+      
+      &:hover {
+        background-color: #339af0 !important;
+        border-color: #339af0 !important;
+      }
+    }
+  }
+  
+  // menu
+  .ant-menu {
+    background-color: var(--theme-surface) !important;
+    color: var(--theme-text-primary) !important;
+    
+    .ant-menu-item {
+      color: var(--theme-text-secondary) !important;
+      
+      &:hover {
+        background-color: var(--theme-hover) !important;
+        color: var(--theme-primary) !important;
+      }
+      
+      &.ant-menu-item-selected {
+        background-color: rgba(77, 171, 247, 0.1) !important;
+        color: var(--theme-primary) !important;
+      }
+    }
+    
+    &.ant-menu-horizontal {
+      border-bottom: 1px solid var(--theme-divider) !important;
+    }
+  }
+  
+  // Label
+  .ant-tag {
+    background-color: var(--theme-card-background) !important;
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text-primary) !important;
+    
+    &.ant-tag-blue {
+      background-color: rgba(77, 171, 247, 0.1) !important;
+      border-color: var(--theme-primary) !important;
+      color: var(--theme-primary) !important;
+    }
+    
+    &.ant-tag-green {
+      background-color: rgba(105, 219, 124, 0.1) !important;
+      border-color: var(--theme-success) !important;
+      color: var(--theme-success) !important;
+    }
+  }
+  
+  // modal box
+  .ant-modal {
+    .ant-modal-content {
+      background-color: var(--theme-card-background) !important;
+      color: var(--theme-text-primary) !important;
+    }
+    
+    .ant-modal-header {
+      background-color: var(--theme-card-background) !important;
+      border-bottom: 1px solid var(--theme-divider) !important;
+      
+      .ant-modal-title {
+        color: var(--theme-text-primary) !important;
+      }
+    }
+    
+    .ant-modal-close {
+      color: var(--theme-text-secondary) !important;
+      
+      &:hover {
+        color: var(--theme-text-primary) !important;
+      }
+    }
+  }
+  
+  // tab page
+  .ant-tabs {
+    .ant-tabs-nav {
+      background-color: var(--theme-surface) !important;
+      
+      &::before {
+        border-bottom: 1px solid var(--theme-divider) !important;
+      }
+    }
+    
+    .ant-tabs-tab {
+      color: var(--theme-text-secondary) !important;
+      
+      &:hover {
+        color: var(--theme-primary) !important;
+      }
+      
+      &.ant-tabs-tab-active {
+        color: var(--theme-primary) !important;
+      }
+    }
+    
+    .ant-tabs-ink-bar {
+      background: var(--theme-primary) !important;
+    }
+    
+    .ant-tabs-content-holder {
+      background-color: var(--theme-surface) !important;
+    }
+  }
+  
+  // Black and white theme tab page style
+  .bounty-square .ant-tabs {
+    .ant-tabs-tab {
+      color: var(--theme-gray-dark) !important;
+      font-weight: 400 !important;
+      
+      &:hover {
+        color: var(--theme-black) !important;
+        
+        .ant-tabs-tab-btn {
+          color: var(--theme-black) !important;
+        }
+      }
+      
+      &.ant-tabs-tab-active {
+        color: var(--theme-black) !important;
+        font-weight: 600 !important;
+        
+        .ant-tabs-tab-btn {
+          color: var(--theme-black) !important;
+        }
+      }
+      
+      .ant-tabs-tab-btn {
+        color: inherit !important;
+        transition: color 0.3s ease !important;
+      }
+    }
+    
+    .ant-tabs-ink-bar {
+      background: var(--theme-black) !important;
+      height: 3px !important;
+    }
+  }
+}
+
+// Global black and white theme tab style (make sure it takes effect everywhere)
+.bounty-square {
+  .ant-tabs {
+    .ant-tabs-tab {
+      color: var(--theme-gray-dark) !important;
+      font-weight: 400 !important;
+      
+      &:hover {
+        color: var(--theme-black) !important;
+        
+        .ant-tabs-tab-btn {
+          color: var(--theme-black) !important;
+        }
+      }
+      
+      &.ant-tabs-tab-active {
+        color: var(--theme-black) !important;
+        font-weight: 600 !important;
+        
+        .ant-tabs-tab-btn {
+          color: var(--theme-black) !important;
+        }
+      }
+      
+      .ant-tabs-tab-btn {
+        color: inherit !important;
+        transition: color 0.3s ease !important;
+      }
+    }
+    
+    .ant-tabs-ink-bar {
+      background: var(--theme-black) !important;
+      height: 3px !important;
+    }
+  }
+  
+  // card
+  .ant-card {
+    background-color: var(--theme-card-background) !important;
+    border-color: var(--theme-border) !important;
+    
+    .ant-card-head {
+      background-color: var(--theme-card-background) !important;
+      border-bottom: 1px solid var(--theme-divider) !important;
+      
+      .ant-card-head-title {
+        color: var(--theme-text-primary) !important;
+      }
+    }
+    
+    .ant-card-body {
+      color: var(--theme-text-primary) !important;
+    }
+  }
+}
+
+// Work rating system dark theme adaptation
+.theme-dark {
+  .artwork-rating {
+    // Adjustment of normal level under dark theme
+    &.rating-common {
+      border-color: var(--theme-border);
+      box-shadow: 0 2px 8px var(--theme-shadow);
+    }
+    
+    // High level maintains the original effects but adjusts the color intensity
+    &.rating-rare {
+      box-shadow: 0 4px 16px rgba(77, 171, 247, 0.3);
+      
+      &:hover {
+        box-shadow: 0 6px 20px rgba(77, 171, 247, 0.4);
+      }
+    }
+    
+    &.rating-epic {
+      box-shadow: 0 4px 16px rgba(151, 117, 250, 0.4);
+      
+      &:hover {
+        box-shadow: 0 6px 20px rgba(151, 117, 250, 0.5);
+      }
+    }
+    
+    &.rating-legendary {
+      box-shadow: 0 4px 16px rgba(255, 212, 59, 0.5);
+      
+      &:hover {
+        box-shadow: 0 6px 20px rgba(255, 212, 59, 0.6);
+      }
+    }
+    
+    &.rating-mythic {
+      box-shadow: 0 4px 20px rgba(255, 107, 107, 0.6);
+      
+      &:hover {
+        box-shadow: 0 6px 24px rgba(255, 107, 107, 0.7);
+      }
+    }
+  }
+  
+  // Adjustment of rating labels under dark theme
+  .rating-badge {
+    backdrop-filter: blur(8px);
+    
+    &.badge-common {
+      background: rgba(173, 181, 189, 0.9);
+    }
+  }
+}
+
+// Tools
+.text-theme-primary { color: var(--theme-text-primary) !important; }
+.text-theme-secondary { color: var(--theme-text-secondary) !important; }
+.text-theme-muted { color: var(--theme-text-muted) !important; }
+.bg-theme-surface { background-color: var(--theme-surface) !important; }
+.bg-theme-card { background-color: var(--theme-card-background) !important; }
+.border-theme { border-color: var(--theme-border) !important; }
+
+// Smooth transition animation
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+} 

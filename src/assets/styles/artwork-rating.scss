@@ -1,0 +1,404 @@
+// Work rating system style
+
+// Basic rating style
+.artwork-rating {
+  position: relative;
+  
+  // Rating border
+  &.rating-common {
+    border: 2px solid #d9d9d9;
+    box-shadow: 0 2px 8px rgba(217, 217, 217, 0.15);
+  }
+  
+  &.rating-rare {
+    border: 2px solid #1890ff;
+    box-shadow: 0 4px 16px rgba(24, 144, 255, 0.25);
+    
+    &:hover {
+      box-shadow: 0 6px 20px rgba(24, 144, 255, 0.35);
+    }
+  }
+  
+  &.rating-epic {
+    border: 2px solid #722ed1;
+    box-shadow: 0 4px 16px rgba(114, 46, 209, 0.3);
+    
+    &:hover {
+      box-shadow: 0 6px 20px rgba(114, 46, 209, 0.4);
+    }
+    
+    // purple pulse animation
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: inherit;
+      background: linear-gradient(45deg, transparent, #722ed1, transparent);
+      animation: epicPulse 3s ease-in-out infinite;
+      z-index: -1;
+    }
+  }
+  
+  &.rating-legendary {
+    border: 2px solid #faad14;
+    box-shadow: 0 4px 16px rgba(250, 173, 20, 0.4);
+    
+    &:hover {
+      box-shadow: 0 6px 20px rgba(250, 173, 20, 0.5);
+    }
+    
+    // golden flash animation
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: inherit;
+      background: linear-gradient(45deg, transparent, #faad14, transparent);
+      animation: legendaryShine 2s ease-in-out infinite;
+      z-index: -1;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #faad14, transparent);
+      border-radius: 50%;
+      animation: goldSparkle 2s ease-in-out infinite;
+    }
+  }
+  
+  &.rating-mythic {
+    border: 2px solid #ff4d4f;
+    box-shadow: 0 4px 20px rgba(255, 77, 79, 0.5);
+    
+    &:hover {
+      box-shadow: 0 6px 24px rgba(255, 77, 79, 0.6);
+    }
+    
+    // red flame animation
+    &::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: inherit;
+      background: linear-gradient(45deg, #ff4d4f, #ff7875, #ff4d4f);
+      animation: mythicFlame 1.5s ease-in-out infinite;
+      z-index: -1;
+    }
+  }
+  
+  &.rating-divine {
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7) 1;
+    box-shadow: 
+      0 0 20px rgba(255, 107, 107, 0.4),
+      0 0 40px rgba(78, 205, 196, 0.3),
+      0 0 60px rgba(69, 183, 209, 0.2);
+    
+    &:hover {
+      box-shadow: 
+        0 0 25px rgba(255, 107, 107, 0.6),
+        0 0 50px rgba(78, 205, 196, 0.4),
+        0 0 75px rgba(69, 183, 209, 0.3);
+    }
+    
+    // Rainbow streamer animation
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        #ff6b6b,
+        #4ecdc4,
+        #45b7d1,
+        #96ceb4,
+        #ffeaa7,
+        #ff6b6b
+      );
+      animation: divineRotate 4s linear infinite;
+      z-index: -2;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      right: 3px;
+      bottom: 3px;
+      background: var(--theme-card-background);
+      border-radius: inherit;
+      z-index: -1;
+    }
+  }
+}
+
+// Rating label style
+.rating-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  
+  &.badge-common {
+    background: rgba(140, 140, 140, 0.8);
+  }
+  
+  &.badge-rare {
+    background: rgba(24, 144, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+  }
+  
+  &.badge-epic {
+    background: rgba(114, 46, 209, 0.9);
+    box-shadow: 0 2px 8px rgba(114, 46, 209, 0.4);
+  }
+  
+  &.badge-legendary {
+    background: rgba(250, 173, 20, 0.9);
+    box-shadow: 0 2px 8px rgba(250, 173, 20, 0.4);
+  }
+  
+  &.badge-mythic {
+    background: rgba(255, 77, 79, 0.9);
+    box-shadow: 0 2px 8px rgba(255, 77, 79, 0.5);
+  }
+  
+  &.badge-divine {
+    background: linear-gradient(45deg, rgba(255,107,107,0.9), rgba(78,205,196,0.9));
+    box-shadow: 0 2px 12px rgba(255, 107, 107, 0.6);
+    animation: divineBadge 2s ease-in-out infinite;
+  }
+}
+
+// Rating icon style
+.rating-icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 16px;
+  z-index: 10;
+  
+  &.icon-rare {
+    filter: drop-shadow(0 2px 4px rgba(24, 144, 255, 0.5));
+  }
+  
+  &.icon-epic {
+    filter: drop-shadow(0 2px 4px rgba(114, 46, 209, 0.5));
+    animation: epicGlow 2s ease-in-out infinite;
+  }
+  
+  &.icon-legendary {
+    filter: drop-shadow(0 2px 4px rgba(250, 173, 20, 0.6));
+    animation: legendaryGlow 2s ease-in-out infinite;
+  }
+  
+  &.icon-mythic {
+    filter: drop-shadow(0 2px 4px rgba(255, 77, 79, 0.6));
+    animation: mythicGlow 1.5s ease-in-out infinite;
+  }
+  
+  &.icon-divine {
+    animation: divineGlow 1s ease-in-out infinite;
+  }
+}
+
+// animation definition
+@keyframes epicPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes legendaryShine {
+  0%, 100% {
+    opacity: 0.4;
+    background-position: -100% 0;
+  }
+  50% {
+    opacity: 0.8;
+    background-position: 100% 0;
+  }
+}
+
+@keyframes goldSparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes mythicFlame {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1) rotateZ(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.03) rotateZ(1deg);
+  }
+}
+
+@keyframes divineRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes divineBadge {
+  0%, 100% {
+    background: linear-gradient(45deg, rgba(255,107,107,0.9), rgba(78,205,196,0.9));
+  }
+  25% {
+    background: linear-gradient(45deg, rgba(78,205,196,0.9), rgba(69,183,209,0.9));
+  }
+  50% {
+    background: linear-gradient(45deg, rgba(69,183,209,0.9), rgba(150,206,180,0.9));
+  }
+  75% {
+    background: linear-gradient(45deg, rgba(150,206,180,0.9), rgba(255,234,167,0.9));
+  }
+}
+
+@keyframes epicGlow {
+  0%, 100% {
+    filter: drop-shadow(0 2px 4px rgba(114, 46, 209, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 2px 8px rgba(114, 46, 209, 0.8));
+  }
+}
+
+@keyframes legendaryGlow {
+  0%, 100% {
+    filter: drop-shadow(0 2px 4px rgba(250, 173, 20, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 2px 8px rgba(250, 173, 20, 0.9));
+  }
+}
+
+@keyframes mythicGlow {
+  0%, 100% {
+    filter: drop-shadow(0 2px 4px rgba(255, 77, 79, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 2px 8px rgba(255, 77, 79, 0.9));
+  }
+}
+
+@keyframes divineGlow {
+  0% {
+    filter: drop-shadow(0 2px 4px rgba(255, 107, 107, 0.8));
+  }
+  25% {
+    filter: drop-shadow(0 2px 4px rgba(78, 205, 196, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 2px 4px rgba(69, 183, 209, 0.8));
+  }
+  75% {
+    filter: drop-shadow(0 2px 4px rgba(150, 206, 180, 0.8));
+  }
+  100% {
+    filter: drop-shadow(0 2px 4px rgba(255, 234, 167, 0.8));
+  }
+}
+
+// Like count display style enhancement
+.likes-display {
+  &.rare {
+    color: #1890ff;
+    font-weight: 600;
+  }
+  
+  &.epic {
+    color: #722ed1;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(114, 46, 209, 0.3);
+  }
+  
+  &.legendary {
+    color: #faad14;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(250, 173, 20, 0.4);
+  }
+  
+  &.mythic {
+    color: #ff4d4f;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(255, 77, 79, 0.4);
+  }
+  
+  &.divine {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    animation: divineText 3s ease-in-out infinite;
+  }
+}
+
+@keyframes divineText {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+// Responsive adaptation
+@media (max-width: 768px) {
+  .rating-badge {
+    top: 6px;
+    right: 6px;
+    padding: 3px 6px;
+    font-size: 11px;
+  }
+  
+  .rating-icon {
+    top: 6px;
+    left: 6px;
+    font-size: 14px;
+  }
+} 
