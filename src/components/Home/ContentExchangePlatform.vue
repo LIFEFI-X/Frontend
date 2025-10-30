@@ -7,24 +7,22 @@
         <div class="hero-left">
           <div class="title-container">
             <h1 class="platform-title">
-              Redefining Healing <br>
-              with Science, AI,<br>
-              and Web3
+              <span class="title-digital">Digital</span> Life <span class="title-fidelity">Fidelity</span>
             </h1>
           </div>
           
           <p class="platform-description">
-            The launch platform for Bio-AI-Healing projects. Invest,
-            experience, and co-create the next era of digital wellness on
-            SOLANA Chain.
+            Redefined Own Your Data Always
           </p>
+          
+          <button class="download-companion" @click="downloadCompanion">Download Companion</button>
         </div>
         
         <!-- Right Content Display Area -->
         <div class="hero-right">
           <div class="content-display">
             <div class="video-placeholder">
-                <img :src="bg" alt="hero-video" />
+                <img :src="bg" alt="" />
             </div>
           </div>
         </div>
@@ -112,7 +110,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { NVirtualList } from 'naive-ui'
-import bg from '@/assets/images/bg.png'
+import bg from '@/assets/images/Faye.png'
 import cname from '@/assets/images/cname.png'
 // Selected chain status
 const selectedChain = ref<string | null>(null)
@@ -129,14 +127,14 @@ const selectChain = (chainName: string) => {
 
 // Simulated collectible data
 const baseCollections = [
-  {id:1, name: 'DUN SHAO', dayVolume: '142 SOL', change: '+10.2%', changeClass: 'positive' },
-  {id:2, name: 'XIANGCAI DONG', dayVolume: '98 SOL', change: '+8.5%', changeClass: 'positive' },
-  {id:3, name: 'PENGGAOFEI WU', dayVolume: '76 SOL', change: '+6.1%', changeClass: 'positive' },
-  {id:4, name: 'SHUAIDA', dayVolume: '65 SOL', change: '-2.3%', changeClass: 'negative' },
-  {id:5, name: 'NIKO', dayVolume: '54 SOL', change: '+4.7%', changeClass: 'positive' },
-  {id:6, name: 'NIKO', dayVolume: '43 SOL', change: '-1.2%', changeClass: 'negative' },
-  {id:7, name: 'JISOSDDE', dayVolume: '32 SOL', change: '+3.4%', changeClass: 'positive' },
-  {id:8, name: 'DADADAF', dayVolume: '28 SOL', change: '+2.1%', changeClass: 'positive' },
+  {id:1, name: 'JAMES WILSON', dayVolume: '142 SOL', change: '+10.2%', changeClass: 'positive' },
+  {id:2, name: 'SOPHIA ANDERSON', dayVolume: '98 SOL', change: '+8.5%', changeClass: 'positive' },
+  {id:3, name: 'MICHAEL BROWN', dayVolume: '76 SOL', change: '+6.1%', changeClass: 'positive' },
+  {id:4, name: 'EMMA JOHNSON', dayVolume: '65 SOL', change: '-2.3%', changeClass: 'negative' },
+  {id:5, name: 'OLIVER SMITH', dayVolume: '54 SOL', change: '+4.7%', changeClass: 'positive' },
+  {id:6, name: 'ISABELLA DAVIS', dayVolume: '43 SOL', change: '-1.2%', changeClass: 'negative' },
+  {id:7, name: 'WILLIAM TAYLOR', dayVolume: '32 SOL', change: '+3.4%', changeClass: 'positive' },
+  {id:8, name: 'CHARLOTTE MILLER', dayVolume: '28 SOL', change: '+2.1%', changeClass: 'positive' },
 ]
 
 const collections = reactive(
@@ -156,6 +154,10 @@ const collections = reactive(
     }
   })
 )
+
+const downloadCompanion = () => {
+  window.open('https://lifeif.oss-ap-southeast-1.aliyuncs.com/companion/chrome-mv3.zip', '_blank')
+}
 </script>
 
 <style scoped lang="scss">
@@ -166,94 +168,126 @@ const collections = reactive(
   padding: 40px 0;
 }
 
-// Hero Section
-.hero-section {
-  margin-bottom: 60px;
-}
-
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 60px;
-  align-items: end;
+  align-items: flex-end;
   min-height: 500px;
 }
 
 .hero-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: flex-start;
   height: 100%;
 }
 
 .title-container {
   position: relative;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 
 
 .platform-title {
-
+  font-family: 'Poppins';
 font-style: normal;
-font-weight: 700;
-font-size: 64px;
-line-height: 74px;
-text-transform: uppercase;
-
-color: #ffffff;
-
-
+font-weight: 600;
+font-size: 96px;
+line-height: 200px;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin: 0;
+  
 }
 
 
 
 .platform-description {
+  font-family: 'Poppins';
 font-style: normal;
-font-weight: 300;
-font-size: 24px;
-line-height: 28px;
-color: #989898;
+font-weight: 400;
+font-size: 36px;
+line-height: 110%;
+}
+
+.download-companion {
+  background: #FFFFFF;
+  color: #1B1B1B;
+  border: none;
+  border-radius: 48px;
+  padding: 16px 32px;
+ 
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 140%;
+text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  max-width: 308px;
+
+
+
+
+
+
+
+
+
+
+
+  
+  &:hover {
+    background: #E5E5E5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 .hero-right {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   height: 100%;
 }
 
 .content-display {
   width: 100%;
-  height: 100%;
-  min-height: 400px;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
 }
 
 .video-placeholder {
   width: 100%;
-  max-height: 500px;
   height: 100%;
-  min-height: 400px;
-  background: #2a2a2a;
-  border-radius: 16px;
+  background: transparent;
+  border-radius: 0;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #333;
-  overflow: hidden;
+  border: none;
+  overflow: visible;
   
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 16px;
+    object-fit: contain;
+    border-radius: 0;
   }
 }
 
 // Top Collections Section
 .top-collections {
-  margin-top: 80px;
   width: 100%;
   max-width: none;
 }
@@ -757,17 +791,15 @@ line-height: 140%;
   }
   
   .content-display {
-    min-height: 300px;
+    max-width: 100%;
+    width: 100%;
   }
   
   .video-placeholder {
-    min-height: 300px;
-    
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
+      object-fit: contain;
     }
   }
   
