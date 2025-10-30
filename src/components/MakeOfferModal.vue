@@ -276,7 +276,7 @@ watch(() => props.visible, (newVal) => {
     
     &:focus {
       outline: none;
-      border-color: #D3F56E;
+      border-color: #FFFFFF;
     }
   }
   
@@ -331,7 +331,7 @@ watch(() => props.visible, (newVal) => {
     
     &:focus {
       outline: none;
-      border-color: #D3F56E;
+      border-color: #FFFFFF;
     }
     
     option {
@@ -367,7 +367,7 @@ watch(() => props.visible, (newVal) => {
   
   .submit-btn {
     flex: 1;
-    background: #D3F56E;
+    background: #FFFFFF;
     border: none;
     border-radius: 8px;
     color: #000000;
@@ -378,7 +378,7 @@ watch(() => props.visible, (newVal) => {
     transition: all 0.2s ease;
     
     &:hover:not(:disabled) {
-      background: #B8E348;
+      background: #FFFFFF;
     }
     
     &:disabled {

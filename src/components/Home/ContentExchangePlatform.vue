@@ -201,7 +201,7 @@ font-size: 64px;
 line-height: 74px;
 text-transform: uppercase;
 
-color: #DDFFB3;
+color: #ffffff;
 
 
 }

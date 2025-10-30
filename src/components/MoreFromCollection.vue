@@ -103,14 +103,13 @@ const canScrollNext = ref(true)
 
 // Create an avatar placeholder
 const createAvatarPlaceholder = (name: string) => {
-  const colors = ['#ff6b35', '#1890ff', '#52c41a', '#fa8c16', '#eb2f96', '#722ed1']
-  const initials = name.split(' ').map(n => n[0]).join('').toUpperCase()
-  const bgColor = colors[name.length % colors.length]
+  const firstLetter = name.charAt(0).toUpperCase()
+  const bgColor = '#666666' // Use gray background for black/white/gray theme
   return `data:image/svg+xml,${encodeURIComponent(`
-    <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-      <rect width="32" height="32" fill="${bgColor}" rx="16"/>
-      <text x="16" y="22" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
-        ${initials}
+    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" fill="${bgColor}" rx="20"/>
+      <text x="20" y="26" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+        ${firstLetter}
       </text>
     </svg>
   `)}`
@@ -380,7 +379,7 @@ onMounted(() => {
   }
 
   .verified-icon {
-    color: #D3F56E;
+    color: #FFFFFF;
     font-size: 16px;
     flex-shrink: 0;
   }
@@ -446,8 +445,8 @@ onMounted(() => {
       }
       
       &:hover {
-        background: rgba(211, 245, 110, 0.9);
-        border-color: rgba(211, 245, 110, 1);
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 1);
         color: #000000;
         transform: scale(1.1);
       }
@@ -483,13 +482,13 @@ onMounted(() => {
     
     &:hover {
       background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(211, 245, 110, 0.6);
-      color: #D3F56E;
+      border-color: rgba(255, 255, 255, 0.6);
+      color: #FFFFFF;
       transform: translateY(-2px);
       
       @supports not (backdrop-filter: blur(10px)) {
         background: #333333;
-        border-color: #D3F56E;
+        border-color: #FFFFFF;
       }
     }
   }

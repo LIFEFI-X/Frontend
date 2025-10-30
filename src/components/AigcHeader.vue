@@ -2,7 +2,7 @@
   <header class="aigc-header">
     <div class="header-container">
       <!-- Logo area on the left -->
-      <div class="logo-section">
+      <div class="logo-section" @click="goToHome">
         <span class="brand-name">LiFEFi</span>
       </div>
 
@@ -50,7 +50,7 @@
                     @error="handleAvatarError"
                   />
                   <div v-else class="avatar-placeholder">
-                    {{ getAvatarText(userStore.userInfo?.displayName || userStore.userInfo?.username) }}
+                    {{ getAvatarText(userStore.userInfo?.displayName || userStore.userInfo?.username || 'User') }}
                   </div>
                 </div>
                 <div class="user-details">
@@ -136,7 +136,7 @@
                     @error="handleAvatarError"
                   />
                   <div v-else class="avatar-placeholder">
-                    {{ getAvatarText(userStore.userInfo?.displayName || userStore.userInfo?.username) }}
+                    {{ getAvatarText(userStore.userInfo?.displayName || userStore.userInfo?.username || 'User') }}
                   </div>
                 </div>
                 <div class="user-details">
@@ -173,12 +173,14 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { InteractionUtils } from '@/utils/interaction'
 import { useUserStore } from '@/stores/user'
 import SvgIcon from './SvgIcon.vue'
 import { useThemeStore } from '@/stores/theme'
 import { useModalStore } from '@/stores/modal'
 import LoginEntry from '@/components/uid/LoginEntry.vue'
+const router = useRouter()
 const modalStore = useModalStore()
 const themeStore = useThemeStore()
 const isDark = computed(() => themeStore.isDark)
@@ -215,6 +217,12 @@ const handleAvatarError = (event: Event) => {
   const target = event.target as HTMLImageElement
   target.style.display = 'none'
 }
+// Navigate to home page
+const goToHome = () => {
+  router.push('/')
+  InteractionUtils.vibrate() // Mobile haptic feedback
+}
+
 // Navigation click handler
 const handleNavClick = (section: string) => {
   console.log(`Navigate to: ${section}`)
@@ -446,7 +454,7 @@ onUnmounted(() => {
   }
   
   &.router-link-active {
-    color: #1890ff;
+    color: #FFFFFF;
   }
   
   // Hover underline effect
@@ -467,7 +475,7 @@ onUnmounted(() => {
   }
   
   &.router-link-active::after {
-    background: #1890ff;
+    background: #FFFFFF;
   }
 }
 
@@ -523,8 +531,8 @@ onUnmounted(() => {
     
     &:hover {
       background: #222222;
-      border-color: #1890ff;
-      color: #1890ff;
+      border-color: #FFFFFF;
+      color: #FFFFFF;
     }
   }
 }
@@ -619,12 +627,12 @@ onUnmounted(() => {
   display: block;
   
   &:hover {
-    color: #1890ff;
+    color: #FFFFFF;
   }
   
   &.router-link-active {
-    color: #1890ff;
-    border-bottom-color: #1890ff;
+    color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
   }
 }
 
@@ -769,7 +777,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1890ff;
+  background: #666666;
   
   img {
     width: 100%;

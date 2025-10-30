@@ -84,10 +84,6 @@
               <input type="number" placeholder="Max" v-model="filters.priceMax" class="price-input" />
               <select v-model="filters.currency" class="currency-select">
                 <option value="LIFI">LIFI</option>
-                <!-- <option value="BTC">BTC</option>
-                <option value="SOL">SOL</option>
-                <option value="USDC">USDC</option>
-                <option value="USDT">USDT</option> -->
               </select>
             </div>
             <button class="apply-btn" @click="applyPriceFilter">APPLY</button>
@@ -351,14 +347,13 @@ const sortMapping = {
 // Create an avatar placeholder
 const createAvatarPlaceholder = (address: string) => {
 if(!address) return ''
-  const colors = ['#ff6b35', '#1890ff', '#52c41a', '#fa8c16', '#eb2f96', '#722ed1']
-  const displayAddress = `${address.slice(0, 4)}...${address.slice(-4)}`
-  const bgColor = colors[address.length % colors.length]
+  const firstLetter = address.charAt(0).toUpperCase()
+  const bgColor = '#666666' 
   return `data:image/svg+xml,${encodeURIComponent(`
     <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
       <rect width="40" height="40" fill="${bgColor}" rx="20"/>
-      <text x="20" y="26" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="white">
-        ${displayAddress}
+      <text x="20" y="26" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+        ${firstLetter}
       </text>
     </svg>
   `)}`
@@ -724,7 +719,7 @@ onMounted(() => {
   white-space: nowrap;
   
   &:hover {
-    color: #D3F56E;
+    color: #FFFFFF;
     background: #333333;
   }
 }
@@ -756,7 +751,7 @@ onMounted(() => {
   
   &:focus {
     outline: none;
-    border-color: #D3F56E;
+    border-color: #FFFFFF;
   }
 }
 
@@ -801,9 +796,9 @@ onMounted(() => {
   
   &:focus {
     outline: none;
-    border-color: #D3F56E;
+    border-color: #FFFFFF;
     color: #ffffff;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D3F56E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
   }
   
   &:hover {
@@ -848,11 +843,11 @@ onMounted(() => {
   align-items: center;
   
   &:hover {
-    color: #D3F56E;
+    color: #FFFFFF;
   }
   
   &.active {
-    color: #D3F56E;
+    color: #FFFFFF;
   }
 }
 
@@ -883,7 +878,7 @@ onMounted(() => {
   box-sizing: border-box;
   
   &:hover {
-    border-color: rgba(211, 245, 110, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -911,7 +906,7 @@ onMounted(() => {
   
   &:focus {
     outline: none;
-    border-color: #D3F56E;
+    border-color: #FFFFFF;
     background: #3a3a3a;
   }
 }
@@ -937,7 +932,7 @@ onMounted(() => {
   
   &:focus {
     outline: none;
-    border-color: #D3F56E;
+    border-color: #FFFFFF;
     background: #3a3a3a;
   }
   
@@ -948,7 +943,7 @@ onMounted(() => {
 }
 
 .apply-btn {
-  background: #D3F56E;
+  background: #FFFFFF;
   border: none;
   border-radius: 20px;
   color: #000000;
@@ -963,9 +958,9 @@ onMounted(() => {
   box-sizing: border-box;
   
   &:hover {
-    background: #B8E348;
+    background: #FFFFFF;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(211, 245, 110, 0.3);
+    box-shadow: 0 4px 12px rgb(255, 255, 255);
   }
   
   &:active {
@@ -1052,8 +1047,8 @@ onMounted(() => {
   }
   
   input:checked + .checkmark {
-    background: #D3F56E;
-    border-color: #D3F56E;
+    background: #FFFFFF;
+    border-color: #FFFFFF;
     
     &::after {
       opacity: 1;
@@ -1064,7 +1059,7 @@ onMounted(() => {
     color: #ffffff;
     
     .checkmark {
-      border-color: #D3F56E;
+      border-color: #FFFFFF;
     }
   }
 }
@@ -1102,7 +1097,7 @@ onMounted(() => {
   
   &:focus {
     outline: none;
-    border-color: #D3F56E;
+    border-color: #FFFFFF;
   }
 }
 
@@ -1168,11 +1163,11 @@ onMounted(() => {
   
   &:hover {
     background: #333333;
-    color: #D3F56E;
+    color: #FFFFFF;
   }
   
   &.active {
-    background: #D3F56E;
+    background: #FFFFFF;
     color: #000000;
   }
 }
@@ -1221,8 +1216,8 @@ onMounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   
   &:hover {
-    border-color: rgba(211, 245, 110, 0.3);
-    box-shadow: 0 8px 24px rgba(211, 245, 110, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -1333,7 +1328,7 @@ onMounted(() => {
 }
 
 .verified-badge {
-  color: #D3F56E;
+  color: #FFFFFF;
   font-size: 12px;
 }
 
@@ -1435,7 +1430,7 @@ onMounted(() => {
   
   &:hover:not(:disabled) {
     background: #333333;
-    border-color: #D3F56E;
+    border-color: #FFFFFF;
   }
   
   &:disabled {
@@ -1494,7 +1489,7 @@ onMounted(() => {
 .item-checkbox {
   width: 16px;
   height: 16px;
-  accent-color: #D3F56E;
+  accent-color: #FFFFFF;
 }
 
 .list-item-image {
@@ -1519,12 +1514,12 @@ onMounted(() => {
 }
 
 .owner-name {
-  color: #D3F56E;
+  color: #FFFFFF;
   text-decoration: underline;
   cursor: pointer;
   
   &:hover {
-    color: #B8E348;
+    color: #FFFFFF;
   }
 }
 

@@ -22,7 +22,10 @@
             <span class="rating-number">#1</span>
             <span class="rating-text">Top Rating</span>
           </div>
-          <img :src="nftData.image" :alt="nftData.name" class="nft-image" />
+          <img v-if="nftData.image" :src="nftData.image" :alt="nftData.name" class="nft-image" />
+          <div v-else class="nft-image-placeholder">
+            <span>Loading NFT details...</span>
+          </div>
         </div>
 
         <!-- tab page -->
@@ -410,8 +413,7 @@ import VChart from 'vue-echarts'
 // Register ECharts component
 use([CanvasRenderer, LineChart, GridComponent, TooltipComponent, MarkPointComponent])
 
-// Import pictures
-import nftImage from '@/assets/images/nft/nft1.png'
+// Import pictures removed - no default image needed
 
 // Get routing parameters
 const route = useRoute()
@@ -476,7 +478,7 @@ const nftData = computed(() => {
     // Return default data as loading status
     return {
       name: 'Loading...',
-      image: nftImage,
+      image: '',
       owner: '--',
       price: '--',
       currency: '--',
@@ -494,7 +496,7 @@ const nftData = computed(() => {
   const detail = nftDetail.value
   return {
     name: detail.name || 'Unnamed NFT',
-    image: detail.imageUrl || detail.displayAnimationUrl || nftImage,
+    image: detail.imageUrl || detail.displayAnimationUrl || '',
     owner: formatAddress(detail.ownerAddress),
     price: detail.priceInfo?.price?.toString() || '--',
     currency: detail.priceInfo?.priceCurrency || '--',
@@ -681,13 +683,13 @@ const updateChartOption = async () => {
         symbol: 'circle',
         symbolSize: 6,
         itemStyle: {
-          color: '#D3F56E',
-          borderColor: '#D3F56E',
+          color: '#FFFFFF',
+          borderColor: '#FFFFFF',
           borderWidth: 2
         },
         lineStyle: {
           width: 3,
-          color: '#D3F56E'
+          color: '#FFFFFF'
         },
         areaStyle: {
           color: {
@@ -699,11 +701,11 @@ const updateChartOption = async () => {
             colorStops: [
               {
                 offset: 0,
-                color: 'rgba(211, 245, 110, 0.3)'
+                color: 'rgba(255, 255, 255, 0.3)'
               },
               {
                 offset: 1,
-                color: 'rgba(211, 245, 110, 0.05)'
+                color: 'rgba(255, 255, 255, 0.05)'
               }
             ]
           }
@@ -712,7 +714,7 @@ const updateChartOption = async () => {
           scale: true,
           focus: 'series',
           itemStyle: {
-            color: '#D3F56E',
+            color: '#FFFFFF',
             borderColor: '#ffffff',
             borderWidth: 3
           },
@@ -756,7 +758,7 @@ const updateChartOption = async () => {
       show: true,
       type: 'line',
       lineStyle: {
-        color: '#D3F56E',
+        color: '#FFFFFF',
         width: 1,
         type: 'dashed'
       }
@@ -1319,7 +1321,7 @@ onMounted(async () => {
   z-index: 1000;
   
   .loading-spinner {
-    color: #D3F56E;
+    color: #FFFFFF;
     font-size: 18px;
     font-weight: 500;
   }
@@ -1405,6 +1407,18 @@ onMounted(async () => {
       object-fit: cover;
       border-radius: 12px; // Picture internal rounded corners
     }
+    
+    .nft-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      border-radius: 12px;
+      color: #666666;
+      font-size: 14px;
+    }
   }
 
   .tabs-section {
@@ -1434,7 +1448,7 @@ onMounted(async () => {
         white-space: nowrap;
         
         &.active {
-          background: #D3F56E;
+          background: #FFFFFF;
           color: #000000;
         }
         
@@ -1550,12 +1564,12 @@ onMounted(async () => {
             }
             
             .detail-link {
-              color: #D3F56E;
+              color: #FFFFFF;
               text-decoration: underline;
               font-size: 14px;
               
               &:hover {
-                color: #B8E348;
+                color: #FFFFFF;
               }
             }
           }
@@ -1655,7 +1669,7 @@ onMounted(async () => {
     }
     
     .own-indicator {
-      color: #D3F56E;
+      color: #FFFFFF;
       font-weight: 500;
       margin-left: 8px;
     }
@@ -1699,7 +1713,7 @@ onMounted(async () => {
     
     .buy-now-btn {
       flex: 1;
-      background: #D3F56E;
+      background: #FFFFFF;
       border: none;
       border-radius: 50px;
       color: #000000;
@@ -1710,7 +1724,7 @@ onMounted(async () => {
       transition: all 0.2s ease;
       
       &:hover:not(:disabled) {
-        background: #B8E348;
+        background: #FFFFFF;
         transform: translateY(-1px);
       }
       
@@ -1725,7 +1739,7 @@ onMounted(async () => {
     .cart-btn {
       width: 52px;
       height: 52px;
-      background: #D3F56E;
+      background: #FFFFFF;
       border: none;
       border-radius: 50%;
       color: #000000;
@@ -1737,7 +1751,7 @@ onMounted(async () => {
       transition: all 0.2s ease;
       
       &:hover:not(:disabled) {
-        background: #B8E348;
+        background: #FFFFFF;
         transform: translateY(-1px);
       }
       
@@ -1800,7 +1814,7 @@ onMounted(async () => {
     text-transform: uppercase;
     
     &:hover {
-      color: #D3F56E;
+      color: #FFFFFF;
     }
     
     .expand-icon {
@@ -1838,7 +1852,7 @@ onMounted(async () => {
     position: relative;
     
     &.active {
-      color: #D3F56E;
+      color: #FFFFFF;
       font-weight: 600;
       
       &::after {
@@ -1848,7 +1862,7 @@ onMounted(async () => {
         left: 0;
         right: 0;
         height: 2px;
-        background: #D3F56E;
+        background: #FFFFFF;
       }
     }
     
@@ -1937,7 +1951,7 @@ onMounted(async () => {
       font-size: 14px;
       
       &:hover {
-        color: #D3F56E;
+        color: #FFFFFF;
       }
     }
     
@@ -1966,7 +1980,7 @@ onMounted(async () => {
     }
     
     .approve-btn {
-      background: #D3F56E;
+      background: #FFFFFF;
       border: none;
       border-radius: 20px;
       color: #000000;
@@ -1978,7 +1992,7 @@ onMounted(async () => {
       height: 32px;
       
       &:hover {
-        background: #B8E348;
+        background: #FFFFFF;
         transform: translateY(-1px);
       }
     }
@@ -2009,7 +2023,7 @@ onMounted(async () => {
     }
     
     .buy-btn {
-      background: #D3F56E;
+      background: #FFFFFF;
       border: none;
       border-radius: 20px;
       color: #000000;
@@ -2022,7 +2036,7 @@ onMounted(async () => {
       height: 32px;
       
       &:hover {
-        background: #B8E348;
+        background: #FFFFFF;
         transform: translateY(-1px);
       }
     }
@@ -2054,7 +2068,7 @@ onMounted(async () => {
       background: transparent;
       border: 2px solid #3d3d3d;
       border-radius: 4px;
-      color: #D3F56E;
+      color: #FFFFFF;
       font-size: 12px;
       display: flex;
       align-items: center;
@@ -2065,8 +2079,8 @@ onMounted(async () => {
     }
     
     input:checked + .checkmark {
-      background: #D3F56E;
-      border-color: #D3F56E;
+      background: #FFFFFF;
+      border-color: #FFFFFF;
       
       &::before {
         opacity: 1;
@@ -2076,7 +2090,7 @@ onMounted(async () => {
     }
     
     &:hover .checkmark {
-      border-color: #D3F56E;
+      border-color: #FFFFFF;
     }
   }
 }
@@ -2106,7 +2120,7 @@ onMounted(async () => {
       font-size: 14px;
       
       &:hover {
-        color: #D3F56E;
+        color: #FFFFFF;
       }
     }
     

@@ -268,8 +268,8 @@ const handleSubmit = () => {
         
         &:focus {
           outline: none;
-          border-color: #D3F56E;
-          box-shadow: 0 0 0 2px rgba(211, 245, 110, 0.2);
+          border-color: #FFFFFF;
+          box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
         }
         
         &::placeholder {
@@ -307,8 +307,8 @@ const handleSubmit = () => {
       
       &:focus {
         outline: none;
-        border-color: #D3F56E;
-        box-shadow: 0 0 0 2px rgba(211, 245, 110, 0.2);
+        border-color: #FFFFFF;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
       }
       
       option {
@@ -386,11 +386,11 @@ const handleSubmit = () => {
   }
   
   .submit-btn {
-    background: #D3F56E;
+    background: #FFFFFF;
     color: #000;
     
     &:hover:not(:disabled) {
-      background: #B8E348;
+      background: #FFFFFF;
       transform: translateY(-1px);
     }
     

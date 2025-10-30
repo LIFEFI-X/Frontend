@@ -359,19 +359,6 @@ onMounted(() => {
   gap: 60px;
   align-items: start;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    left: calc(100vw - 57%);
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: #fff;
-    transform: translateX(-50%);
-    z-index: 0;
-    pointer-events: none;
-  }
 }
 
 .form-section {
@@ -509,7 +496,7 @@ onMounted(() => {
     justify-content: flex-start;
     
     .create-btn {
-      background: #D3F56E !important;
+      background: #FFFFFF !important;
       border: none !important;
       color: #101010 !important;
       font-weight: 600 !important;
@@ -522,14 +509,14 @@ onMounted(() => {
       
       &:hover,
       &:focus {
-        background: #c4e961 !important;
+        background: #FFFFFF !important;
         color: #101010 !important;
         border: none !important;
         box-shadow: none !important;
       }
       
       &:active {
-        background: #b8dd55 !important;
+        background: #FFFFFF !important;
         color: #101010 !important;
         border: none !important;
         box-shadow: none !important;
@@ -726,21 +713,21 @@ onMounted(() => {
 
 // Force override Ant Design button style
 :deep(.ant-btn.create-btn) {
-  background: #D3F56E !important;
+  background: #FFFFFF !important;
   border: none !important;
   color: #101010 !important;
   box-shadow: none !important;
   
   &:hover,
   &:focus {
-    background: #c4e961 !important;
+    background: #FFFFFF !important;
     color: #101010 !important;
     border: none !important;
     box-shadow: none !important;
   }
   
   &:active {
-    background: #b8dd55 !important;
+    background: #FFFFFF !important;
     color: #101010 !important;
     border: none !important;
     box-shadow: none !important;
@@ -773,7 +760,7 @@ onMounted(() => {
 <style lang="scss">
 /* Unscoped style, used to force override Ant Design button style */
 .create-collection-page .form-actions .ant-btn.create-btn {
-  background: #D3F56E !important;
+  background: #FFFFFF !important;
   border: none !important;
   color: #101010 !important;
   font-weight: 600 !important;
@@ -788,7 +775,7 @@ onMounted(() => {
 
 .create-collection-page .form-actions .ant-btn.create-btn:hover,
 .create-collection-page .form-actions .ant-btn.create-btn:focus {
-  background: #c4e961 !important;
+  background: #FFFFFF !important;
   color: #101010 !important;
   border: none !important;
   box-shadow: none !important;
@@ -796,7 +783,7 @@ onMounted(() => {
 }
 
 .create-collection-page .form-actions .ant-btn.create-btn:active {
-  background: #b8dd55 !important;
+  background: #FFFFFF !important;
   color: #101010 !important;
   border: none !important;
   box-shadow: none !important;

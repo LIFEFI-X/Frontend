@@ -852,19 +852,6 @@ onMounted(async () => {
   gap: 60px;
   align-items: start;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    left: 60%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: #fff;
-    transform: translateX(-50%);
-    z-index: 0;
-    pointer-events: none;
-  }
 }
 
 .form-section {
@@ -1074,8 +1061,8 @@ onMounted(async () => {
         }
         
         :deep(.ant-radio-checked .ant-radio-inner) {
-          background: #D3F56E;
-          border-color: #D3F56E;
+          background: #FFFFFF;
+          border-color: #FFFFFF;
         }
         
         :deep(.ant-radio-checked .ant-radio-inner::after) {
@@ -1102,7 +1089,7 @@ onMounted(async () => {
       
       &.highlight {
         font-weight: 600;
-        color: #D3F56E;
+        color: #FFFFFF;
       }
       
       .fee-label {
@@ -1191,7 +1178,7 @@ onMounted(async () => {
     flex-wrap: wrap;
     
     .create-btn {
-      background: #D3F56E !important;
+      background: #FFFFFF !important;
       border: none !important;
       color: #101010 !important;
       font-weight: 600 !important;
@@ -1204,14 +1191,14 @@ onMounted(async () => {
       
       &:hover,
       &:focus {
-        background: #c4e961 !important;
+        background: #FFFFFF !important;
         color: #101010 !important;
         border: none !important;
         box-shadow: none !important;
       }
       
       &:active {
-        background: #b8dd55 !important;
+        background: #FFFFFF !important;
         color: #101010 !important;
         border: none !important;
         box-shadow: none !important;
@@ -1338,7 +1325,7 @@ onMounted(async () => {
       }
       
       .nft-price {
-        color: #D3F56E;
+        color: #FFFFFF;
         font-size: 14px;
         font-weight: 500;
       }
@@ -1418,7 +1405,7 @@ onMounted(async () => {
     }
     
     &.ant-select-item-option-selected {
-      background: #D3F56E;
+      background: #FFFFFF;
       color: #000;
     }
   }
@@ -1449,7 +1436,7 @@ onMounted(async () => {
       color: #000 !important;
       
       &:hover {
-        color: #D3F56E !important;
+        color: #FFFFFF !important;
       }
     }
   }
@@ -1467,11 +1454,11 @@ onMounted(async () => {
   }
   
   .ant-picker-cell-selected {
-    background: #D3F56E !important;
+    background: #FFFFFF !important;
     color: #fff !important;
     
     .ant-picker-cell-inner {
-      background: #D3F56E !important;
+      background: #FFFFFF !important;
       color: #fff !important;
       font-weight: 600 !important;
     }
@@ -1488,7 +1475,7 @@ onMounted(async () => {
   
   .ant-picker-cell-today {
     .ant-picker-cell-inner::before {
-      border: 1px solid #D3F56E !important;
+      border: 1px solid #FFFFFF !important;
     }
   }
   
@@ -1502,10 +1489,10 @@ onMounted(async () => {
     border-top: 1px solid #f0f0f0 !important;
     
     .ant-picker-today-btn {
-      color: #D3F56E !important;
+      color: #FFFFFF !important;
       
       &:hover {
-        color: #B8E348 !important;
+        color: #FFFFFF !important;
       }
     }
   }
@@ -1532,21 +1519,21 @@ onMounted(async () => {
 
 // Force override Ant Design button style
 :deep(.ant-btn.create-btn) {
-  background: #D3F56E !important;
+  background: #FFFFFF !important;
   border: none !important;
   color: #101010 !important;
   box-shadow: none !important;
   
   &:hover,
   &:focus {
-    background: #c4e961 !important;
+    background: #FFFFFF !important;
     color: #101010 !important;
     border: none !important;
     box-shadow: none !important;
   }
   
   &:active {
-    background: #b8dd55 !important;
+    background: #FFFFFF !important;
     color: #101010 !important;
     border: none !important;
     box-shadow: none !important;
@@ -1601,7 +1588,7 @@ onMounted(async () => {
 <style lang="scss">
 /* Unscoped style, used to force override Ant Design button style */
 .create-nft-page .form-actions .ant-btn.create-btn {
-  background: #D3F56E !important;
+  background: #FFFFFF !important;
   border: none !important;
   color: #101010 !important;
   font-weight: 600 !important;
@@ -1616,7 +1603,7 @@ onMounted(async () => {
 
 .create-nft-page .form-actions .ant-btn.create-btn:hover,
 .create-nft-page .form-actions .ant-btn.create-btn:focus {
-  background: #c4e961 !important;
+  background: #FFFFFF !important;
   color: #101010 !important;
   border: none !important;
   box-shadow: none !important;
@@ -1624,7 +1611,7 @@ onMounted(async () => {
 }
 
 .create-nft-page .form-actions .ant-btn.create-btn:active {
-  background: #b8dd55 !important;
+  background: #FFFFFF !important;
   color: #101010 !important;
   border: none !important;
   box-shadow: none !important;
