@@ -1,27 +1,27 @@
 @font-face {
-  font-family: 'Urbanist';
-  src: url('@/assets/font/Urbanist-Medium.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('@/assets/font/Poppins-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('@/assets/font/Urbanist-SemiBold.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('@/assets/font/Poppins-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('@/assets/font/Urbanist-Bold.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('@/assets/font/Poppins-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('@/assets/font/Urbanist-ExtraBold.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('@/assets/font/Poppins-ExtraBold.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
 }
@@ -40,7 +40,7 @@ body {
   transition:
     color 0.5s,
     background-color 0.5s;
-  font-family: Urbanist;
+  font-family: Poppins;
   font-weight: 500;
   font-size: 14px;
   font-feature-settings:

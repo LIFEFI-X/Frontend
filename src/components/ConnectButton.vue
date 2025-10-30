@@ -193,7 +193,7 @@ const showLoginEntryDialog = () => {
     'ss01' on,
     'cv01' on,
     'cv11' on;
-  font-family: Urbanist;
+  font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -299,7 +299,7 @@ const showLoginEntryDialog = () => {
       color: #6e6e73;
 
       span {
-        font-family: Urbanist;
+        font-family: Poppins;
         font-size: 14px;
         font-style: normal;
         font-weight: 600;

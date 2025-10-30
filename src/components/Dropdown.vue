@@ -115,7 +115,7 @@ provide('handleChange', handleChange)
   .dropdown-toggle {
     color: inherit;
     text-align: center;
-    font-family: Urbanist;
+    font-family: Poppins;
     font-size: 16px;
     font-style: normal;
     font-weight: 800;

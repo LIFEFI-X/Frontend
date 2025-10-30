@@ -56,8 +56,8 @@ export default defineConfig(({ command, mode }) => {
         custom: {
           families: [
             {
-              name: 'Urbanist',
-              local: 'Urbanist',
+              name: 'Poppins',
+              local: 'Poppins',
               src: './src/assets/fonts/*'
             }
           ],

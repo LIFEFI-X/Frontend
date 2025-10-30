@@ -199,7 +199,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
 
 .community-section-inline {
   .section-title {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 18px;
     letter-spacing: 0.5px;
@@ -240,7 +240,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
 
 .newsletter-section {
   .section-title {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 18px;
     letter-spacing: 0.5px;
@@ -250,7 +250,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
   }
   
   .section-description {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
@@ -272,7 +272,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
       border: none;
       outline: none;
       color: #ffffff;
-      font-family: 'Urbanist', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 14px;
       padding: 16px 20px;
       
@@ -321,7 +321,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
 
 .nav-column {
   .nav-title {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 16px;
     letter-spacing: 0.5px;
@@ -336,7 +336,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
     gap: 12px;
     
     .nav-link {
-      font-family: 'Urbanist', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 400;
       font-size: 14px;
       color: #999999;
@@ -364,7 +364,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
   }
   
   .copyright {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #666666;
@@ -379,7 +379,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
     }
     
     .footer-link {
-      font-family: 'Urbanist', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 400;
       font-size: 14px;
       color: #666666;

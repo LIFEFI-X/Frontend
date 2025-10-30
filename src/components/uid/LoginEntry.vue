@@ -446,7 +446,7 @@ const openTermsOfService = () => {
 
   .label {
     color: #ffffff; // Block labels changed to white to ensure visibility against black background
-    font-family: Urbanist;
+    font-family: Poppins;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -512,7 +512,7 @@ const openTermsOfService = () => {
 
         span {
           color: #ffffff; // Wallet name changed to white
-          font-family: Urbanist;
+          font-family: Poppins;
           font-size: 16px;
           font-style: normal;
           font-weight: 600;
@@ -534,7 +534,7 @@ const openTermsOfService = () => {
           background: #007AFF; // Blue background to ensure sufficient contrast
           color: #ffffff; // white text
           border: none;
-          font-family: Urbanist;
+          font-family: Poppins;
           font-size: 14px;
           font-weight: 600;
           cursor: pointer;
@@ -585,7 +585,7 @@ const openTermsOfService = () => {
 .privacy-terms {
   width: 100%;
   text-align: center;
-  font-family: Urbanist;
+  font-family: Poppins;
   font-size: 12px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.7); // Translucent white to maintain readability but not stand out too much
